@@ -7,6 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <ListView x:Name="StudentsLV" ItemsSource="{Binding Students}" SelectedItem="{Binding SelectedStudent}" Margin="10,10,277,124">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" >Name</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Speciality}" >Speciality</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Group}" >Group</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="NameTBox" HorizontalAlignment="Left" Margin="552,72,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="228" Height="30"
+                 Text="{Binding NewStudent.Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="SpecialityTBox" HorizontalAlignment="Left" Margin="552,160,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="228" Height="30"
+                 Text="{Binding NewStudent.Speciality, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="GroupTBox" HorizontalAlignment="Left" Margin="552,242,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="228" Height="30"
+                 Text="{Binding NewStudent.Group, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock x:Name="NameTBlock" HorizontalAlignment="Left" Margin="552,43,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="24" Width="228"/>
+        <TextBlock x:Name="SpecialityTBlock" HorizontalAlignment="Left" Margin="552,131,0,0" TextWrapping="Wrap" Text="Speciality" VerticalAlignment="Top" Height="24" Width="228"/>
+        <TextBlock x:Name="GroupTBlock" HorizontalAlignment="Left" Margin="552,213,0,0" TextWrapping="Wrap" Text="Group" VerticalAlignment="Top" Height="24" Width="228"/>
+        <Button x:Name="AddBttn" Content="Add" HorizontalAlignment="Left" Margin="552,305,0,0" VerticalAlignment="Top" Height="54" Width="228"
+                Command="{Binding AddCommand}"/>
+        <Button x:Name="DeleteBttn" Content="Delete"
+                HorizontalAlignment="Left" Margin="10,345,0,0" VerticalAlignment="Top" Height="60" Width="248"
+                Command="{Binding DeleteCommand}"/>
+
     </Grid>
 </Window>
